@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* General body styling */
+body {
+    background: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJvb2tzdG9yZXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Navigation styling */
+nav {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+nav a, .dropdown span {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+nav a:hover, .dropdown span:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Dropdown menu styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px 16px;
+    z-index: 5;
+    border-radius: 2px;
+}
+
+.dropdown-content p, .dropdown-content a {
+    margin: 0;
+    padding: 8px 0;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropdown-content p:hover, .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+}
+
+/* Section styling */
+section {
+    background: rgba(255, 255, 255, 0.9); /* Increased transparency */
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Bookstore section styling */
+.bookstore {
+    padding: 20px;
+}
+
+.category {
+    margin-bottom: 40px;
+}
+
+.category h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.book {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.book h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.book p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.book button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.book button:hover {
+    background-color: #555;
+}
+
+/* Back to Top button styling */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+#back-to-top:hover {
+    background-color: #555;
+}
+
+/* Horizontal layout for comedy books */
+#comedy .books {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+</style>
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Literary Escape Logo" style="height: 80px; vertical-align: middle; margin-right: 10px;">
+    <h3 style="display: inline;">LITERARY ESCAPE.com</h3>
+    <nav>
+        <a href="literary_ecape.html">Home</a>
+        <div class="dropdown">
+            <span>Books</span>
+            <div class="dropdown-content">
+                <a href="#sci-fi">Fiction</a>
+                <a href="#self-help">Non-Fiction</a>
+                <a href="#comedy">comedy</a>
+                <a href="#children">Children</a>
+                <a href="#thriller">Thriller</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <span>About</span>
+            <div class="dropdown-content">
+                <a href="#about">About Us</a>
+                <a href="#team">Team</a>
+                <a href="#contact details">Contact</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="bookstore">
+    <div class="category" id="sci-fi">
+        <h2>Sci-fi</h2>
+        <div class="books">
+            <div class="book">
+                <img src="C:\Users\lanla\Desktop\html\microproject\f1.jpg" alt="Sci-fi Book  1">
+                <h3>Sci-fi Book Title 1</h3>
+                <p>Author 1</p>
+                <p>$10.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="C:\Users\lanla\Desktop\html\microproject\f2.jpg" alt="Sci-fi Book 2">
+                <h3>Sci-fi Book Title 2</h3>
+                <p>Author 2</p>
+                <p>$12.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="C:\Users\lanla\Desktop\html\microproject\f3.jpg" alt="Sci-fi Book 3">
+                <h3>Sci-fi Book Title 2</h3>
+                <p>Author 2</p>
+                <p>$12.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+           
+        </div>
+    </div>
+    </section>
+    <section class="bookstore">
+    <div class="category" id="self-help">
+        <h2>self-help</h2>
+        <div class="books">
+            <div class="book">
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQx8HjoCv1C6UCWE0E5R-3_lQsj02Eik10rQuDzgSB0bxNbJshy3MtpC3EGi72CLIyE3a1fqeayswy6-qiw7aMpV52kYPenkDH2cQXc3jqOoYr9rIU9cu0ZrQ&usqp=CAE" alt="Non-Fiction Book 1">
+                <h3>self-help book Title 1</h3>
+                <p>Robert Greene</p>
+                <p>₹299</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="C:\Users\lanla\Desktop\html\microproject\nf2.jpg" alt="Non-Fiction Book 2">
+                <h3>self-help Book Title 2</h3>
+                <p>Author 2</p>
+                <p>$18.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+           
+        </div>
+    </div>
+    </section>
+    <section class="bookstore">
+        <div class="category" id="comedy">
+            <h2>Comedy</h2>
+            <div class="books">
+                <div class="book">
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQn6xNz50cfG_IRwk5KqwVuPj4sF5Lbq4OORcEPv8uZrlWE4yeVbs-EoCIRJKp7auxb5pfyideWFAKhYEe4ThIvCiJoJfZdYo0DDB6RVLc&usqp=CAE" alt="Comedy Book 1">
+                    <h3>Calvin and Hobes</h3>
+                    <p>Bill Waterson</p>
+                    <p>₹1,800</p>
+                    <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS0qCqiGMnDjnjfM1kVUjjF5nnKXT-10EuGpirOrHm1jBXXyz1EQ1fMXL1CYfIsdBcC1SG5lnCtiXIE6Va6X78XpElILNNCeKGwLAJRBdnnNZwysxQdzIEJWA&usqp=CAE" alt="Comedy Book 2">
+                    <h3>The Hitchhiker's Guide to the Galaxy</h3>
+                    <p>Douglas Adams</p>
+                    <p>₹388</p>
+                    <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+                </div>
+                <div class="book">
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS1-GM_pZTJDHn31HAm_xXCEAQpvXRtSWsxoJVCVBzigniuzwI2Y0HTe8bgkS1MhGQkIg_fmnemeDbYV0SY-5FR959YraSanCuocQ34_5n6T2zQs2TXMCBLHQ&usqp=CAE" alt="Comedy Book 3">
+                    <h3>Hyperbole and a Half</h3>
+                    <p>Allie Brosh</p>
+                    <p>₹553</p>
+                    <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bookstore">
+    <div class="category" id="children">
+        <h2>Children</h2>
+        <div class="books">
+            <div class="book">
+                <img src="https://www.nicepng.com/png/detail/63-631741_snow-white-cover-return-of-snow-white-and.png" alt="Children Book 1">
+                <h3>Snow white and the seven dwarfs</h3>
+                <p>Walt disney</p>
+                <p>₹199</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRP4sK8ulE0kNHPvlME3WsGU1cz5_YzeRWuFSU4-TQoGTkq4SwaMdkmW7AaF4AbFtsikEB3mX7DR6-4C-uHAfsrTLMnYGKrng4zMvFw0LZTBD7m_aU3QUShnw&usqp=CAE" alt="Children Book 2">
+                <h3>Children Book Title 2</h3>
+                <p>Author 2</p>
+                <p>$9.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRP4sK8ulE0kNHPvlME3WsGU1cz5_YzeRWuFSU4-TQoGTkq4SwaMdkmW7AaF4AbFtsikEB3mX7DR6-4C-uHAfsrTLMnYGKrng4zMvFw0LZTBD7m_aU3QUShnw&usqp=CAE" alt="Children Book 2">
+                <h3>Children Book Title </h3>
+                <p>Author 2</p>
+                <p>$9.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="bookstore">
+    <div class="category" id="thriller">
+        <h2>Thriller</h2>
+        <div class="books">
+            <div class="book">
+                <img src="C:\Users\lanla\Desktop\html\microproject\book1.jpg" alt="Thriller Book 1">
+                <h3>Thriller Book Title 1</h3>
+                <p>Author 1</p>
+                <p>$11.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="C:\Users\lanla\Desktop\html\book1.jpg" alt="Thriller Book 2">
+                <h3>Thriller Book Title 2</h3>
+                <p>Author 2</p>
+                <p>$13.00</p>
+                <button onclick="location.href='paymentgateway.html'">Add to Cart</button>
+            </div>
+            <!-- Add more thriller books as needed -->
+        </div>
+    </div>
+</section>
+<section id="about">
+    <h1>About Our Bookstore</h1>
+    <p>Welcome to Literary Escape, your go-to destination for purchasing books at an affordable rate. We offer a wide range of genres including fiction, non-fiction, and children's books. Our mission is to provide readers with a diverse selection of books and to support authors from all backgrounds.</p>
+</section>
+<section id="contact details">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or concerns, feel free to contact us at:</p>
+    <p>Email:
+        <a href="mailto:leandbrag@gmail.com"> </a>
+    </p>
+    <p>Phone: 1-800-123-4567</p>
+</section>
+<section id="team">
+    <h1>Our Team</h1>
+    <p>Meet the team behind Literary Escape:</p>
+    <ul>
+        <li>Avdut Nilesh - Founder</li>
+        <li>Sarvesh Raut - Marketing Manager</li>
+        <li>Aditya Mali - Customer Service</li>
+        <li>Kartik Maurya - Product Manager</li>
+        <li>Leander Braganza - Web Developer</li>
+    </ul>
+</section>
+<button id="back-to-top" onclick="scrollToTop()">Back to Top</button>
+<footer>
+    <p>&copy; 2025 Bookstore. All rights reserved.</p>
+</footer>
+<script>
+    // Show the button when the user scrolls down 20px from the top of the document
+    window.onscroll = function() {
+        var backToTopButton = document.getElementById("back-to-top");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    };
+
+    // Scroll to the top of the document when the user clicks the button
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>
+
+

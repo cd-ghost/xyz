@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General body styling */
+        body {
+            background: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJvb2tzdG9yZXxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Navigation styling */
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Section styling */
+        section {
+            background: rgba(255, 255, 255, 0.9); /* Increased transparency */
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Back to Top button styling */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0c0c0c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Hidden by default */
+        }
+
+        #back-to-top:hover {
+            background-color: #555;
+        }
+
+        /* Cart styling */
+        #cart {
+            margin-bottom: 20px;
+        }
+
+        #cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart ul li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #cart ul li button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #cart ul li button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Literary Escape Logo" style="height: 80px; vertical-align: middle; margin-right: 10px;">
+        <h3 style="display: inline;">LITERARY ESCAPE.com</h3>
+        <nav>
+            <a href="literary_ecape.html">Home</a>
+            <a href="books.html">Books</a>
+            <a href="#contact details">Contact</a>
+            <a href="#about">About</a>
+            <a href="#team">Team</a>
+        </nav>
+    </header>
+    <section id="cart">
+        <h1>Your Cart</h1>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p id="cart-total">Total: $0.00</p>
+    </section>
+    <section>
+        <h1>Payment Details</h1>
+        <p>Please enter your payment details:</p>
+        <form>
+            <label for="name">Name on Card:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="card-number">Card Number:</label><br>
+            <input type="text" id="card-number" name="card-number" required><br><br>
+            <label for="expiry-date">Expiry Date:</label><br>
+            <input type="text" id="expiry-date" name="expiry-date" required><br><br>
+            <label for="cvv">CVV:</label><br>
+            <input type="text" id="cvv" name="cvv" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Thank you for your payment. Your transaction has been completed, and a receipt for your purchase has been emailed to you. You may log into your account at www.paypal.com to view details of this transaction.</p>
+        <p>Thank you for shopping with us</p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Literary Escape. All rights reserved.</p>
+    </footer>
+    <script>
+        const cartItems = [];
+        const cartList = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+
+        // Function to add a book to the cart
+        function addToCart(bookName, price) {
+            cartItems.push({ bookName, price });
+            updateCart();
+        }
+
+        // Function to remove a book from the cart
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        // Function to update the cart display
+        function updateCart() {
+            cartList.innerHTML = '';
+            let total = 0;
+            cartItems.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${item.bookName} - $${item.price.toFixed(2)}
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartList.appendChild(li);
+                total += item.price;
+            });
+            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Example usage: Add books to the cart
+        addToCart('Book 1', 10.00);
+        addToCart('Book 2', 15.50);
+    </script>
+</body>
+</html>
